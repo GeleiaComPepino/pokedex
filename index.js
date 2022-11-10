@@ -5,7 +5,7 @@ const http = require('http');
 const server = http.createServer(app);
 const io = new Server(server);
 const axios = require('axios');
-
+const port = Process.env.PORT || 8080 ;
 async function getAllPokemons(){
     const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=99999&offset=0')
     return data
@@ -34,6 +34,6 @@ app.use('404.css',(req,res) =>{
 app.use(function(req,res){
     res.status(404).sendFile(`${__dirname}/ClientContent/404/404.html`)
 });
-server.listen(8080, () =>{
+server.listen(port, () =>{
     console.log('Entre em: http://localhost:8080');
 });
