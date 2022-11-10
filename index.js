@@ -5,7 +5,7 @@ const http = require('http');
 const server = http.createServer(app);
 const io = new Server(server);
 const axios = require('axios');
-const port = Process.env.PORT || 8080 ;
+const port = 8080;
 async function getAllPokemons(){
     const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=99999&offset=0')
     return data
